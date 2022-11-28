@@ -9,16 +9,15 @@
             // bloco try
             try
             {
-                // using fecha o objeto arquivo depois do seu uso
-                using(FileStream arquivo=new FileStream(caminho, FileMode.Open))
-                {
                     // using fecha o objeto leitor depois de seu uso
-                    using(StreamReader leitor = new StreamReader(arquivo)) { 
-                        // string que recebe leitor
+                    using(StreamReader leitor = File.Open(caminho)) {
+                        // bloco while
+                        while(!leitor.EnOfStream){
+                         // string que recebe leitor
                         string linhas = leitor.ReadLine();
                         // mostra linhas
-                        Console.WriteLine(linhas);
-                    }
+                        Console.WriteLine(linhas);}
+                       
                 }
             }
             // trata erros
